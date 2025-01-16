@@ -1,10 +1,8 @@
-"use client"
 import { useState, useEffect } from 'react';
-
 
 type CategoryType = {
   _id: string;
-  categoryName: string; 
+  categoryName: string;
 };
 
 export default function Home() {
@@ -26,5 +24,4 @@ export default function Home() {
       ))}
     </div>
   );
-  
 }
