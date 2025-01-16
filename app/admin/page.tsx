@@ -1,10 +1,10 @@
 "use client";
 
-import Categories from "./_components/Category"
+import Categories from "./_components/Category";
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <Categories />
     </div>
   );
