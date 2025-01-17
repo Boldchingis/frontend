@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import { Badge } from "@/components/ui/badge";
 type CategoryType = {
   categoryName: string;
   _id: string;
@@ -39,14 +39,19 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-white  w-[1171px] h-[176px] p-6 rounded-xl ">
       <h4 className="text-[20px], font-[600]">Dishes category </h4>
       <div>
         {categories?.map((category) => (
-          <div key={category._id}> {category.categoryName} </div>
+          <Badge className="gap-5" variant="outline" key={category._id}>
+            {category.categoryName}
+          </Badge>
         ))}
-        <button className="bg-green-600 p-5" onClick={addCategory}>
-          Add Food
+        <button
+          className="size-[36px] bg-red-500 rounded-xl"
+          onClick={addCategory}
+        >
+          +
         </button>
       </div>
     </div>
