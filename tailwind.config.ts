@@ -32,6 +32,15 @@ export default {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'
   			},
+			animation: {
+				"infinite-scroll": "infinite-scroll 20s linear infinite",
+			  },
+			keyframes: {
+				"infinite-scroll": {
+				  "0%": { transform: "translateX(0)" },
+				  "100%": { transform: "translateX(-100%)" },
+				},
+			  },
   			accent: {
   				DEFAULT: 'hsl(var(--accent))',
   				foreground: 'hsl(var(--accent-foreground))'
