@@ -14,7 +14,7 @@ export default function App() {
           <User />
         </div>
       </div>
-      <img className="w-full h-aut" src="homepic.png" />
+      <img className="w-full h-[570px]" src="homepic.png" />
       <div className="text-[30px] font-[600] text-black ml-16 h-[500px]">
         Categories
       </div>
@@ -36,6 +36,7 @@ export default function App() {
           </p>
         </div>
       </div>
+      <div className="bg-[#18181B] w-full h-16"></div>
       <footer className="bg-[#18181B] w-full h-[auto]">
         <div className="  w-full h-[92px] bg-[#EF4444] text-white text-[30px] font-[600] flex items-center justify-center overflow-hidden ">
           <div className="text-animation-infinite-scroll flex gap-6">
