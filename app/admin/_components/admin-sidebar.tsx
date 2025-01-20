@@ -3,9 +3,10 @@ import { Dock } from "lucide-react";
 import { Car } from "lucide-react";
 import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import OrderListHome from "../foods/page";
 export default function SideBar() {
   return (
-    <div className="w-[205px] min-h-[1024px] bg-white">
+    <div className="w-[205px] min-h-[1024px]  bg-gray-100">
       <div className="flex items-center justify-center ">
         <div className="items-center justify-center flex size-[40px] text-red-500">
           <HandPlatter />
