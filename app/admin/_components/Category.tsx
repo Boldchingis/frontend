@@ -39,21 +39,28 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-white  w-[1171px] h-[176px] p-6 rounded-xl ">
-      <h4 className="text-[20px], font-[600]">Dishes category </h4>
-      <div>
-        {categories?.map((category) => (
-          <Badge className="gap-5" variant="outline" key={category._id}>
-            {category.categoryName}
-          </Badge>
-        ))}
-        <button
-          className="size-[36px] bg-red-500 rounded-xl"
-          onClick={addCategory}
-        >
-          +
-        </button>
+    <div className="bg-white w-full h-auto py-6 px-8 rounded-xl shadow-md">
+  <h4 className="text-[18px] font-semibold mb-4">Dishes category</h4>
+  <div className="flex flex-wrap items-center gap-4">
+    {categories?.map((category) => (
+      <div
+        key={category._id}
+        className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-full text-gray-700 text-sm font-medium"
+      >
+        {category.categoryName} 
+        <span className="ml-2 bg-black text-white rounded-full px-2 py-1 text-xs">
+          {category._id}
+        </span>
       </div>
-    </div>
+    ))}
+    <button
+      className="flex items-center justify-center w-9 h-9 bg-red-500 text-white rounded-full text-lg font-bold"
+      onClick={addCategory}
+    >
+      +
+    </button>
+  </div>
+</div>
+
   );
 }
