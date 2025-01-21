@@ -1,11 +1,11 @@
-import SideBar from './category/admin-sidebar';
+import SideBar from "./category/admin-sidebar";
 import {
   ClerkProvider,
   SignInButton,
   SignedIn,
   SignedOut,
-  UserButton
-} from '@clerk/nextjs';
+  UserButton,
+} from "@clerk/nextjs";
 
 export default function RootLayout({
   children,
@@ -21,7 +21,7 @@ export default function RootLayout({
           </SignedOut>
           <SignedIn>
             <UserButton />
-        <div className="bg-muted h-screen flex gap-6  ">
+            <div className="bg-muted h-screen flex gap-6  ">
               <SideBar />
               {children}
             </div>

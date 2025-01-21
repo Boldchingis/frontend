@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useState } from "react";
 const orders = [
@@ -13,21 +13,21 @@ const orders = [
     status: "Pending",
   },
 ];
-export default function OrderList ()  {
-  const [status, setStatus] = useState('');
-  const [borderColor, setBorderColor] = useState('');
+export default function OrderList() {
+  const [status, setStatus] = useState("");
+  const [borderColor, setBorderColor] = useState("");
 
-  const handleChange = (event:any) => {
+  const handleChange = (event: any) => {
     const selectedValue = event.target.value;
     setStatus(selectedValue);
-    if (selectedValue === 'Pending') {
-      setBorderColor('border-yellow-500');
-    } else if (selectedValue === 'Delivered') {
-      setBorderColor('border-green-500');
-    } else if (selectedValue === 'Cancelled') {
-      setBorderColor('border-black'); 
-  
-    }}
+    if (selectedValue === "Pending") {
+      setBorderColor("border-yellow-500");
+    } else if (selectedValue === "Delivered") {
+      setBorderColor("border-green-500");
+    } else if (selectedValue === "Cancelled") {
+      setBorderColor("border-black");
+    }
+  };
   return (
     <div className="space-y-4">
       {orders.map((order) => (
@@ -44,18 +44,16 @@ export default function OrderList ()  {
           <span className="col-span-1 text-gray-600">{order.date}</span>
           <span className="col-span-1 text-gray-800">{order.price}</span>
           <select
-  value={status}
-  onChange={handleChange}
-  className={`font-[600] text-[12px] py-[6px] px-[10px] rounded-full w-[94px] border-2 ${borderColor}`}
->
-  <option value="Pending">Pending</option>
-  <option value="Delivered">Delivered</option>
-  <option value="Cancelled">Cancelled</option>
-</select>
+            value={status}
+            onChange={handleChange}
+            className={`font-[600] text-[12px] py-[6px] px-[10px] rounded-full w-[94px] border-2 ${borderColor}`}
+          >
+            <option value="Pending">Pending</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
         </div>
       ))}
     </div>
   );
-};
-
-
+}
