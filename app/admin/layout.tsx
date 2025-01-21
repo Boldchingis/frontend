@@ -1,14 +1,33 @@
-import SideBar from "./_components/admin-sidebar";
+import SideBar from './category/admin-sidebar';
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs';
 
-export default function AdminRouter({
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <div className="bg-muted h-screen flex gap-6  ">
-      <SideBar />
-      {children}
-    </div>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+        <div className="bg-muted h-screen flex gap-6  ">
+              <SideBar />
+              {children}
+            </div>
+          </SignedIn>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

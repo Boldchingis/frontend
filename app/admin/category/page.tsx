@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Badge } from "@/components/ui/badge";
 type CategoryType = {
   categoryName: string;
   _id: string;
