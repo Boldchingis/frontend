@@ -14,20 +14,16 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-            <div className="bg-muted h-screen flex gap-6  ">
-              <SideBar />
-              {children}
-            </div>
-          </SignedIn>
-        </body>
-      </html>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+        <div className="bg-muted h-screen flex gap-6  ">
+          <SideBar />
+          {children}
+        </div>
+      </SignedIn>
     </ClerkProvider>
   );
 }
