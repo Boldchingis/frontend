@@ -1,8 +1,9 @@
 "use client";
+import OrderListHome from "./orders/page"
 export default function Home() {
   return (
     <div>
-      <div>please log in</div>
+      <OrderListHome/>
     </div>
   );
 }
