@@ -2,8 +2,30 @@ import { ShoppingCart } from "lucide-react";
 import { Instagram } from "lucide-react";
 import { Facebook } from "lucide-react";
 import { User } from "lucide-react";
+import { useState, useEffect } from "react";
 import "./styles.css";
+type CategoryType = {
+  categoryName: string;
+  _id: string;
+};
 export default function App() {
+    const [categories, setCategories] = useState<CategoryType[]>([]);
+    async function fetchAll() {
+        const res = await fetch(`http://localhost:5006/food-category`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+    
+        const data = await res.json();
+        setCategories(data);
+      }
+    
+      useEffect(() => {
+        fetchAll();
+      }, []);
   return (
     <div>
       <div className="w-[full] h-[68px] bg-[#18181B] flex items-center justify-between  ">
@@ -14,9 +36,20 @@ export default function App() {
         </div>
       </div>
       <img className="w-full h-[570px]" src="homepic.png" />
-      <div className="text-[30px] font-[600] text-black ml-16 h-[500px]">
-        Categories
-      </div>
+      <div className="text-[30px] font-[600] text-white ml-16 mt-8">
+  Categories
+</div>
+<div className="flex gap-4  px-8 py-4 ">
+  {categories?.map((category) => (
+    <div
+      key={category._id}
+      className="px-6 py-3 rounded-full text-black text-sm font-medium bg-white"
+    >
+      {category.categoryName}
+    </div>
+  ))}
+</div>
+
 
       <div className="bg-white w-[400px] h-[350px] rounded-3xl shadow-lg">
         <img
