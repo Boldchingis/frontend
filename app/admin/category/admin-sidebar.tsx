@@ -5,9 +5,8 @@ import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 export default function SideBar() {
-  
   return (
-    <div className="w-[205px] min-h-[1024px]  bg-gray-100">
+    <div className="w-[205px] min-h-[1300px] bg-white">
       <Link href={"/"}>
         <div className="flex items-center justify-center ">
           <div className="items-center justify-center flex size-[40px] text-red-500">
