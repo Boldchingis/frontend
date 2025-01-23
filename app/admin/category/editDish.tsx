@@ -93,7 +93,7 @@ export const EditDish = ({ food, id }: { food: FoodType; id: string }) => {
             Dish name
           </Label>
           <Input
-            value={editFood?.name}
+            value={editFood?.foodName}
             id="foodName"
             name="name"
             type="text"
