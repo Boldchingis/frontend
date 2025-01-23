@@ -1,6 +1,6 @@
 "use client";
-import { Pencil } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Uploader } from "./Uploader";
 
 type FoodType = {
   foodName: string;
@@ -13,24 +13,32 @@ type FoodType = {
 export default function FoodCardHome() {
   const [foods, setFoods] = useState<FoodType[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newFoodImage, setNewFoodImage] = useState("");
 
   const addFood = async () => {
     const foodName = prompt("Enter new food name");
     const price = parseFloat(prompt("Enter price ") || "0");
     const ingredients = prompt("Enter ingredients ");
-
+    if (!newFoodImage) {
+      alert("Hool nemheesee omno zurag oruulna uu");
+      return;
+    }
     const response = await fetch("http://localhost:5006/food", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ foodName, price, ingredients }),
+      body: JSON.stringify({
+        foodName,
+        price,
+        ingredients,
+        image: newFoodImage,
+      }),
     });
-
     const data = await response.json();
     setFoods([...foods, data.newItem]);
+    setNewFoodImage("");
   };
-
   async function fetchAll() {
     const res = await fetch(`http://localhost:5006/food`, {
       method: "GET",
@@ -39,15 +47,9 @@ export default function FoodCardHome() {
         "Content-Type": "application/json",
       },
     });
-    if (!res.ok) {
-      console.error("Failed to fetch food data");
-      return;
-    }
-
     const data = await res.json();
     setFoods(data);
   }
-
   useEffect(() => {
     fetchAll();
   }, []);
@@ -63,11 +65,10 @@ export default function FoodCardHome() {
             >
               <div>
                 <img
-                  src="https://i.ytimg.com/vi/8tpqNEoJpEs/maxresdefault.jpg"
+                  src={food.image}
                   alt={food.foodName || "No Name"}
                   className="w-full h-[135px] object-cover object-center rounded-t-3xl"
                 />
-                {/* <Pencil /> */}
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-center mt-2">
@@ -85,15 +86,16 @@ export default function FoodCardHome() {
             </div>
           ) : null
         )}
-        <button
-          className="flex flex-col items-center justify-center border-2 border-dashed border-red-500 w-[270px] h-[241px] bg-white rounded-2xl shadow-md"
-          onClick={addFood}
-        >
-          <div className="flex items-center justify-center w-12 h-12 bg-red-500 text-white rounded-full text-2xl font-bold">
+        <div className="flex flex-col items-center justify-center border-2 border-dashed border-red-500 w-[270px] h-[241px] bg-white rounded-2xl shadow-md">
+          <Uploader setImage={setNewFoodImage} />
+          <p className="font-[700]"> Add new dish</p>
+          <button
+            className="mt-4 px-4 py-2 bg-red-500 text-white rounded-2xl"
+            onClick={addFood}
+          >
             +
-          </div>
-          <p className="text-gray-600 mt-4 text-center text-sm">Add new Dish</p>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );
