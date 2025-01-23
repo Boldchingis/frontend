@@ -63,7 +63,7 @@ export default function FoodCardHome() {
             >
               <div>
                 <img
-                  src="https://res.cloudinary.com/duhir31qk/image/upload/v1737534371/Day_Sun_m1flwo.png"
+                  src="https://i.ytimg.com/vi/8tpqNEoJpEs/maxresdefault.jpg"
                   alt={food.foodName || "No Name"}
                   className="w-full h-[135px] object-cover object-center rounded-t-3xl"
                 />
