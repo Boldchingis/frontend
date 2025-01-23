@@ -79,6 +79,7 @@ export default function FoodCardHome() {
                     ${food.price ? food.price.toFixed(2) : "0.00"}
                   </p>
                 </div>
+
                 <p className="text-[12px] text-gray-600 mt-2">
                   {food.ingredients || "No ingredients listed"}
                 </p>

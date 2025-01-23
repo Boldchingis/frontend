@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-type CategoryType = {
+export type CategoryType = {
   categoryName: string;
   _id: string;
 };
