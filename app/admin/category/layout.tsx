@@ -1,4 +1,4 @@
-import SideBar from "@/app/admin/category/admin-sidebar"
+import SideBar from "./admin-sidebar";
 import Home from "@/app/admin/page";
 export default function AdminRouter({
   children,

@@ -5,6 +5,7 @@ export type CategoryType = {
   _id: string;
 };
 
+
 export default function DishCategory() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
 
@@ -38,7 +39,7 @@ export default function DishCategory() {
   }, []);
 
   return (
-    <div className="bg-white w-[1530px] h-auto py-6 px-8 rounded-xl shadow-md mt-12">
+    <div className="bg-white w-full h-auto py-6 px-8 rounded-xl shadow-md mt-12">
       <h4 className="text-[18px] font-semibold mb-4">Dishes category</h4>
       <div className="flex flex-wrap items-center gap-4">
         {categories?.map((category) => (
