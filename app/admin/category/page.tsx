@@ -1,61 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
-import { CategoryType } from "./dishCategory";
-import  DishCategory from "./dishCategory"
-import { Card } from "@/components/ui/card";
-import { AddDish } from "./addDish";
-import { CardComp } from "./foodCard";
-import { useAuth } from "@clerk/nextjs";
 
-export type FoodType = {
-  _id: string;
-  foodName: string;
-  price: number;
-  image: string;
-  ingredients: string;
-  category: string;
-};
+import { Categories } from "./dishCategory";
+import { Dishes } from "./Dishes";
 
-export const FilteredFood = ({ _id, categoryName }: CategoryType) => {
-  const { getToken } = useAuth();
-  async function getCategories(){
-const token = await getToken();
-console.log(token);
-  }
-  const [foods, setFoods] = useState<FoodType[]>([]);
-
-  useEffect(() => {
-    const fetchFood = async () => {
-      const response = await fetch("http://localhost:5006/food");
-      const data = await response.json();
-      setFoods(data);
-    };
-
-    fetchFood();
-  }, [_id, categoryName]);
-
+export default function Home() {
   return (
-    <div> 
-      <div className="mb-5"> 
-    <DishCategory/>
-    </div>
-    <div className="w-full p-5 flex flex-col gap-5 rounded-xl bg-background">
-      <h4 className=" text-xl font-semibold  ">{categoryName}</h4>
-      <div className="flex flex-wrap gap-4">
-        <Card className="border border-dashed border-red-500 px-2 py-4 w-[270.75px] h-[241px] flex flex-col items-center  justify-center ">
-          <AddDish categoryName={categoryName} _id={_id} setFoods={setFoods} />
-        </Card>
-        {foods?.map(
-          (food) =>
-            food.category === _id && (
-              <div key={food._id}>
-                <CardComp food={food} _id={_id} />
-              </div>
-            )
-        )}
-      </div>
-    </div>
+    <div>
+      <Categories />
+      <Dishes />
     </div>
   );
-};
-export default FilteredFood;
+}

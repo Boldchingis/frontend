@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import React from "react";
 import { EditDish } from "./editDish";
-
+import { CategoryType } from "./Dishes";
 export const CardComp = ({ food, id }: any) => {
   return (
     <Card className="bg-white w-[270px] h-[241px] rounded-3xl border relative">

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FilteredFood } from "./page";
+import { FilteredFood } from "./filteredFood";
 import { useParams } from "next/navigation";
 
 export type CategoryType = {
@@ -13,14 +13,14 @@ export const Dishes = () => {
   const params = useParams();
   useEffect(() => {
     const fetchCategory = async () => {
-      const response = await fetch("http://localhost:5001/food");
+      const response = await fetch("http://localhost:5006/food-category");
       const data = await response.json();
       setFoodCategory(data);
     };
 
     fetchCategory();
   }, []);
-
+  console.log(foodCategory);
   return (
     <div className="flex flex-col gap-5 w-11/12 ">
       {!params.id
