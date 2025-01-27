@@ -5,6 +5,7 @@ import  DishCategory from "./dishCategory"
 import { Card } from "@/components/ui/card";
 import { AddDish } from "./addDish";
 import { CardComp } from "./foodCard";
+import { useAuth } from "@clerk/nextjs";
 
 export type FoodType = {
   _id: string;
@@ -16,6 +17,11 @@ export type FoodType = {
 };
 
 export const FilteredFood = ({ _id, categoryName }: CategoryType) => {
+  const { getToken } = useAuth();
+  async function getCategories(){
+const token = await getToken();
+console.log(token);
+  }
   const [foods, setFoods] = useState<FoodType[]>([]);
 
   useEffect(() => {

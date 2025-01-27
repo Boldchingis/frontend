@@ -14,7 +14,7 @@ import {
   import { Label } from "@/components/ui/label";
   import { Dispatch, SetStateAction, useEffect, useState } from "react";
   import { CategoryType } from "./dishCategory";
-  import { FoodType } from "./page"
+  import { FoodType } from "./FilteredFood"
   
   interface AddDishProps {
     categoryName: string;
@@ -131,7 +131,7 @@ import {
             <h1 className="text-sm">Food image</h1>
             {food.image !== "" ? (
               <div
-                className={`w-full h-[135px] object-cover object-center rounded-t-3xl `}
+                className={`w-full h-[138px] object-cover object-center rounded-t-3xl `}
                 style={{ backgroundImage: `url(${food.image})` }}
               ></div>
             ) : (
