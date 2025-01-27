@@ -198,7 +198,7 @@ export const EditDish = ({ food, id }: { food: FoodType; id: string }) => {
           <DialogClose asChild>
             <Button
               variant="outline"
-              className="border-red-500"
+              className="border-red-500 bg-white rounded-full"
               onClick={deleteDish}
             >
               <Trash color="red" strokeWidth={1.5} />

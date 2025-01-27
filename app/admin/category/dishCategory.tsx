@@ -79,6 +79,7 @@ export const Categories = () => {
             <DialogFooter>
               <DialogClose asChild>
                 <Button
+                  className="bg-white border shadow-none"
                   type="submit"
                   onClick={() => {
                     if (newCategory) {

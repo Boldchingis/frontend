@@ -158,6 +158,7 @@ export const AddDish = ({ categoryName, _id, setFoods }: AddDishProps) => {
         <DialogFooter className="pt-6">
           <DialogClose asChild>
             <Button
+              className="bg-white border shadow-none"
               onClick={() => {
                 addDish();
               }}
