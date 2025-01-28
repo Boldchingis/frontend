@@ -36,7 +36,8 @@ export default function App() {
         </Link>
         <div className="text-white flex  mr-16 gap-4 ">
           <ShoppingCart />
-          <User />
+          <Link href={"/register/"}>  <User /></Link>
+         
         </div>
       </div>
 
