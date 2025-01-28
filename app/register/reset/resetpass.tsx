@@ -8,11 +8,13 @@ export default function ResetPassword() {
     <div className="bg-white text-white flex justify-center items-center h-screen">
       <div className="w-full max-w-md px-4">
         <Link href={"/register/"}>
-        <button className="flex items-center justify-center rounded-[8px] p-2 text-black bg-white border border-gray-300 hover:bg-gray-100 active:shadow-inner w-8">
-        <ChevronLeft className="w-4 h-4" />
+          <button className="flex items-center justify-center rounded-[8px] p-2 text-black bg-white border border-gray-300 hover:bg-gray-100  w-8 mb-4">
+            <ChevronLeft className="w-4 h-4" />
           </button>
         </Link>
-        <h2 className="mt-4 text-2xl font-semibold text-white">Reset your password</h2>
+        <h2 className="mt-4 text-2xl font-semibold text-black">
+          Reset your password
+        </h2>
         <p className="text-sm text-gray-400 mt-2">
           Enter your email to receive a password reset link.
         </p>
@@ -27,7 +29,10 @@ export default function ResetPassword() {
         </Button>
         <p className="text-center text-sm text-gray-400 mt-6">
           Don’t have an account?
-          <Link href="/register/signup" className="text-blue-500 hover:underline">
+          <Link
+            href="/register/signup"
+            className="text-blue-500 hover:underline"
+          >
             Sign up
           </Link>
         </p>
