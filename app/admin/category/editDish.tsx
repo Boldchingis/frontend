@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Image, Pencil, Trash, X } from "lucide-react";
+import { CategoryType } from "./Dishes";
 import {
   Dialog,
   DialogClose,

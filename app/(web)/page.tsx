@@ -4,9 +4,10 @@ import { Facebook } from "lucide-react";
 import { User } from "lucide-react";
 import { useCallback } from "react";
 import { useState, useEffect } from "react";
-import FoodCardModal from "./foodCardModal";
+import FoodCardModal from "./companents/foodCardModal";
 import { OrderSheet } from "./OrderSheet";
-import Footer from "./footer";
+import FoodAlert from "./companents/foodAlert";
+import Footer from "./companents/footer";
 import Link from "next/link";
 import "./styles.css";
 type CategoryType = {
@@ -47,7 +48,7 @@ export default function App() {
 
   return (
     <div>
-      <div className="w-[full] h-[68px] bg-[#18181B] flex items-center justify-between  ">
+      <div className="w-[full] inset-0 h-[68px] bg-[#18181B] flex items-center justify-between sticky z-10  ">
         <Link href={"/admin/"}>
           <img className="w-[146px] h-[44px] ml-16 " src="homelogo.png" />
         </Link>
@@ -65,7 +66,7 @@ export default function App() {
         </div>
       </div>
 
-      <img className="w-full h-[700px]" src="homepic.png" />
+      <img className="w-full h-[900px]" src="homepic.png" />
 
       <div className="text-[30px] font-[600] text-white ml-16 mt-8">
         Categories
@@ -102,6 +103,7 @@ export default function App() {
         </div>
       </div>
       <FoodCardModal />
+      <FoodAlert />
       <div className="bg-[#18181B] w-full h-16"></div>
       <Footer />
     </div>
