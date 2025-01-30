@@ -1,6 +1,13 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 const orders = [
   {
     id: 1,
@@ -43,15 +50,18 @@ export default function OrderList() {
           <span className="col-span-1 text-gray-600">{order.items}</span>
           <span className="col-span-1 text-gray-600">{order.date}</span>
           <span className="col-span-1 text-gray-800">{order.price}</span>
-          <select
-            value={status}
-            onChange={handleChange}
-            className={`font-[600] text-[12px] py-[6px] px-[10px] rounded-full w-[94px] border-2 ${borderColor}`}
-          >
-            <option value="Pending">Pending</option>
-            <option value="Delivered">Delivered</option>
-            <option value="Cancelled">Cancelled</option>
-          </select>
+          <Select value={status} onValueChange={handleChange}>
+            <SelectTrigger
+              className={`font-[600] text-[12px] py-[6px] px-[10px] rounded-full w-[94px] border-2 ${borderColor}`}
+            >
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Pending">Pending</SelectItem>
+              <SelectItem value="Delivered">Delivered</SelectItem>
+              <SelectItem value="Cancelled">Cancelled</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       ))}
     </div>

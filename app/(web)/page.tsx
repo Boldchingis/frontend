@@ -102,8 +102,8 @@ export default function App() {
           </p>
         </div>
       </div>
-      <FoodCardModal />
-      <FoodAlert />
+      {/* <FoodCardModal />
+      <FoodAlert /> */}
       <div className="bg-[#18181B] w-full h-16"></div>
       <Footer />
     </div>

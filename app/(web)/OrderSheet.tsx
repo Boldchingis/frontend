@@ -6,9 +6,9 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { ShoppingCart } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import OrderSheetCard from "./companents/OrderSheetCard";
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import OrderSheetOrder from "./companents/OrderSheetOrder";
 interface OrderSheetProps {
   isOpen: Boolean;
   setIsOpen: (isOpen: boolean) => void;
@@ -23,19 +23,30 @@ export function OrderSheet({ isOpen, setIsOpen }: OrderSheetProps) {
             <ShoppingCart /> Food order detail
           </SheetTitle>
           <SheetDescription>
-            <div>
-              <div className="w-[471px] h-[44px] bg-white rounded-full mt-6 flex justify-center items-center gap-3">
-                <Button className="w-[220px] h-[36px] text-white   bg-black rounded-full  hover:bg-red-500 ">
+            <Tabs defaultValue="Cart" className="w-[471px]">
+              <TabsList className="w-full bg-white rounded-full mt-6 flex justify-center items-center gap-3">
+                <TabsTrigger
+                  value="Cart"
+                  className="w-[222px] h-[32px] text-black shadow-none  rounded-full
+                   data-[state=active]:bg-[#EF4444] data-[state=active]:text-white"
+                >
                   Cart
-                </Button>
-                <Button className="w-[220px] h-[36px] text-white bg-black rounded-full hover:bg-red-500 ">
+                </TabsTrigger>
+                <TabsTrigger
+                  value="Order"
+                  className="w-[222px] h-[32px] text-black shadow-none  rounded-full
+                  data-[state=active]:bg-[#EF4444] data-[state=active]:text-white"
+                >
                   Order
-                </Button>
-              </div>
-              <div>
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent value="Cart">
                 <OrderSheetCard />
-              </div>
-            </div>
+              </TabsContent>
+              <TabsContent value="Order">
+                <OrderSheetOrder />
+              </TabsContent>
+            </Tabs>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
