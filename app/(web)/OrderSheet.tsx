@@ -24,7 +24,7 @@ export function OrderSheet({ isOpen, setIsOpen }: OrderSheetProps) {
           </SheetTitle>
           <SheetDescription>
             <Tabs defaultValue="Cart" className="w-[471px]">
-              <TabsList className="w-full bg-white rounded-full mt-6 flex justify-center items-center gap-3">
+              <TabsList className="w-full bg-white rounded-full flex justify-center items-center gap-3">
                 <TabsTrigger
                   value="Cart"
                   className="w-[222px] h-[32px] text-black shadow-none  rounded-full

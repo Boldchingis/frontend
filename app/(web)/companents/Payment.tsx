@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 export default function PaymentInfo() {
   return (
-    <div className="w-[471px] h-[275px] rounded-3xl p-6 bg-white shadow-md ">
+    <div className="w-[471px] h-[275px] rounded-3xl p-6 bg-white mt-4 shadow-md ">
       <h1 className="font-semibold text-lg mb-4">Payment info</h1>
 
       <div className="flex justify-between text-gray-600">
